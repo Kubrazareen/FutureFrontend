@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 210 40% 98%; /* #F8FAFC */
+    --foreground: 221 39% 11%; /* #111827 */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 221 39% 11%; /* #111827 */
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 39% 11%;
+    --primary: 243.4 75.4% 58.6%; /* #4F46E5 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 221 39% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8.9% 46.1%; /* #6B7280 */
+    --accent: 231 100% 97%; /* #EEF2FF */
+    --accent-foreground: 243.4 75.4% 58.6%; /* #4F46E5 */
+    --destructive: 0 84.2% 60.2%; /* #DC2626 */
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 13% 91%; /* #E5E7EB */
+    --input: 220 13% 91%; /* #E5E7EB */
+    --ring: 243.4 75.4% 58.6%; /* #4F46E5 */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 243.4 75.4% 58.6%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 243.4 75.4% 58.6%;
+  }
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: #F8FAFC;
+  color: #111827;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin: 0;
+}
+
+/* ========================================================
+   Global Interactive Cursor Pointer Standard
+   Enforce cursor: pointer on all clickable & interactive elements
+   ======================================================== */
+button:not(:disabled),
+a,
+select,
+option,
+summary,
+label,
+input[type="button"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+input[type="file"]:not(:disabled),
+[role="button"]:not([aria-disabled="true"]):not(:disabled),
+[role="tab"],
+[role="menuitem"],
+[role="option"],
+[role="checkbox"],
+[role="radio"],
+[role="switch"],
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+[disabled],
+[aria-disabled="true"],
+.cursor-not-allowed {
+  cursor: not-allowed !important;
+}
+
+/* ========================================================
+   Design System Standards (Typography & Spacing Utilities)
+   Deep Navy + Indigo Palette
+   ======================================================== */
+
+.page-title {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111827;
+}
+@media (min-width: 640px) {
+  .page-title {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem;
+  }
+}
+
+.page-subtitle {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem;
+  color: #6B7280;
+}
+
+.section-title {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+@media (min-width: 640px) {
+  .section-title {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.375rem;
+  }
+}
+
+.section-desc {
+  font-size: 0.6875rem; /* 11px */
+  line-height: 0.875rem;
+  color: #6B7280;
+}
+
+.field-label {
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 500;
+  color: #374151;
+}
+
+.caption-text {
+  font-size: 0.625rem; /* 10px */
+  color: #6B7280;
+}
+
+
+/* ========================================================
+   Form Input Styles
+   ======================================================== */
+.input-field {
+  width: 100%;
+  border-radius: 0.625rem;
+  border: 1px solid #E2E8F0;
+  background-color: #FFFFFF;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #0F172A;
+  transition: all 0.15s ease-in-out;
+  outline: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.input-field:focus {
+  border-color: #4F46E5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.input-field::placeholder {
+  color: #94A3B8;
+}
+
+.input-field:disabled {
+  background-color: #F8FAFC;
+  color: #94A3B8;
+  cursor: not-allowed;
+}
+
+select.input-field {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.25rem;
+}
+
+option {
+  padding: 8px 12px;
+  background-color: #ffffff;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+option:hover,
+option:focus,
+option:checked {
+  background-color: #EEF2FF !important;
+  color: #4F46E5 !important;
+}
